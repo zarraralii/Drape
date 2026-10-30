@@ -1,0 +1,250 @@
+/* ==========================================================================
+   Drape admin — polish on top of the Minia theme (loaded after app.min.css)
+   ========================================================================== */
+
+:root {
+    --drape-ink: #1b1a18;
+    --drape-ink-soft: #3a3631;
+    --drape-clay: #7a4b33;
+    --drape-clay-soft: #f4ebe4;
+    --drape-line: #e9e5df;
+    --drape-bg: #f7f5f2;
+    --bs-primary: #1b1a18;
+    --bs-primary-rgb: 27, 26, 24;
+    --bs-link-color: #7a4b33;
+    --bs-link-hover-color: #5a3524;
+}
+
+body, .main-content, .page-content { background: var(--drape-bg) !important; }
+.vertical-menu, body[data-sidebar=light] .vertical-menu { background: #fff !important; }
+.footer { background: transparent; border-top: 1px solid var(--drape-line); }
+
+/* ---------- Brand + top bar ---------- */
+
+.navbar-brand-box .logo-txt {
+    font-family: "Cormorant Garamond", Georgia, serif;
+    font-size: 26px;
+    font-weight: 600;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    color: var(--drape-ink) !important;
+}
+
+#page-topbar { box-shadow: none; border-bottom: 1px solid var(--drape-line); }
+.header-item.bg-soft-light { background: transparent !important; }
+.topbar-store-link { display: inline-flex; align-items: center; gap: 6px; margin-right: 12px; font-weight: 500; color: var(--drape-ink-soft); }
+.topbar-store-link:hover { color: var(--drape-clay); }
+
+/* ---------- Sidebar: one icon column so every label lines up ---------- */
+
+.vertical-menu { border-right: 1px solid var(--drape-line); }
+
+#sidebar-menu ul li a {
+    display: flex !important;
+    align-items: center;
+    gap: 12px;
+    padding-top: .6rem;
+    padding-bottom: .6rem;
+}
+
+#sidebar-menu ul li a > i,
+#sidebar-menu ul li a > svg {
+    flex: 0 0 22px;
+    width: 22px !important;
+    min-width: 22px !important;
+    margin: 0 !important;
+    font-size: 16px !important;
+    text-align: center;
+    line-height: 1;
+}
+
+#sidebar-menu ul li a > span { flex: 1; min-width: 0; }
+
+#sidebar-menu .has-arrow::after { margin-left: auto; }
+
+#sidebar-menu ul li ul.sub-menu li a {
+    padding-left: 3.4rem !important;
+    font-size: 13.5px;
+}
+
+#sidebar-menu ul li ul.sub-menu li a > i { flex-basis: 18px; width: 18px !important; min-width: 18px !important; font-size: 13px !important; opacity: .7; }
+
+#sidebar-menu ul li a.current,
+#sidebar-menu ul li.mm-active > a,
+#sidebar-menu ul li a.active,
+#sidebar-menu ul li a:hover {
+    color: var(--drape-clay) !important;
+}
+#sidebar-menu ul li a.current,
+#sidebar-menu ul li ul.sub-menu li.mm-active > a {
+    background: var(--drape-clay-soft);
+    border-radius: 6px;
+}
+#sidebar-menu ul li.mm-active > a > i,
+#sidebar-menu ul li a.current > i,
+#sidebar-menu ul li a:hover > i { color: var(--drape-clay) !important; }
+
+/* ---------- Cards ---------- */
+
+.card { border: 1px solid var(--drape-line); border-radius: 10px; box-shadow: none; }
+.card-header { background: #fff; border-bottom: 1px solid var(--drape-line); padding: 16px 20px; border-radius: 10px 10px 0 0 !important; }
+.card-header .card-title, .card-header h4, .card-header h5 {
+    margin: 0;
+    font-size: 16px !important;
+    font-weight: 600;
+    color: var(--drape-ink);
+}
+.card-header .btn { white-space: nowrap; }
+
+/* ---------- Buttons ---------- */
+
+.btn { border-radius: 6px; box-shadow: none !important; }
+.btn-primary { background: var(--drape-ink); border-color: var(--drape-ink); }
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active { background: var(--drape-ink-soft) !important; border-color: var(--drape-ink-soft) !important; }
+.btn-outline-primary { color: var(--drape-ink); border-color: var(--drape-ink); }
+.btn-outline-primary:hover { background: var(--drape-ink); border-color: var(--drape-ink); color: #fff; }
+.btn-success { background: #2f6b4a; border-color: #2f6b4a; }
+.btn-success:hover { background: #255a3d; border-color: #255a3d; }
+/* Page-level "Add …" buttons share the brand's primary look. */
+.card-header .btn-success, .page-title-box .btn-success { background: var(--drape-ink); border-color: var(--drape-ink); }
+.card-header .btn-success:hover, .page-title-box .btn-success:hover { background: var(--drape-ink-soft); border-color: var(--drape-ink-soft); }
+.card-header .btn { display: inline-flex; align-items: center; gap: 6px; padding: .5rem 1rem; font-weight: 500; }
+.card-header .btn > i { margin: 0 !important; }
+.btn .fa, .btn .fas, .btn .mdi { vertical-align: middle; }
+
+/* Icon-only action buttons in tables: same size, centred icon, even gaps. */
+.table td .btn-sm,
+.table td a.btn-sm,
+.action-btns .btn {
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    padding: 0 !important;
+    margin: 2px 4px 2px 0 !important;
+    border-radius: 6px;
+    vertical-align: middle;
+}
+.table td .btn-sm > i,
+.action-btns .btn > i {
+    display: inline-block !important;
+    margin: 0 !important;
+    font-size: 15px !important;
+    line-height: 1 !important;
+}
+/* …except buttons that carry a text label (status toggles, "View"). */
+.table td .btn-sm.btn-rounded,
+.table td .btn-sm.active-inactive,
+.table td .btn-sm.has-label {
+    width: auto;
+    padding: 0 12px !important;
+    font-size: 12px;
+}
+.table td.actions, .table td:last-child:has(.btn-sm) { white-space: nowrap; }
+
+/* ---------- Tables / DataTables ---------- */
+
+.table { --bs-table-hover-bg: #faf8f5; }
+.table > :not(caption) > * > * { padding: .75rem .9rem; vertical-align: middle; }
+.table thead th {
+    background: #faf9f7;
+    border-bottom-width: 1px !important;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: #6f6a64;
+    white-space: nowrap;
+}
+.table-bordered > :not(caption) > * > * { border-color: var(--drape-line); }
+.table img.avatar-sm, .table img.rounded-circle { object-fit: cover; }
+.table td img:not(.rounded-circle) { border-radius: 6px; object-fit: cover; }
+
+div.dataTables_wrapper div.dataTables_length,
+div.dataTables_wrapper div.dataTables_filter { margin-bottom: 12px; }
+div.dataTables_wrapper div.dataTables_length label,
+div.dataTables_wrapper div.dataTables_filter label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    font-weight: 500;
+    color: #6f6a64;
+}
+div.dataTables_wrapper div.dataTables_length select {
+    width: auto;
+    min-width: 70px;
+    display: inline-block;
+}
+div.dataTables_wrapper div.dataTables_filter input { width: 240px; margin: 0 !important; }
+div.dataTables_wrapper div.dataTables_info { padding-top: 14px; color: #6f6a64; }
+div.dataTables_wrapper div.dataTables_paginate { padding-top: 10px; }
+.page-item.active .page-link { background: var(--drape-ink); border-color: var(--drape-ink); }
+.page-link { color: var(--drape-ink); }
+table.dataTable { margin-top: 4px !important; margin-bottom: 4px !important; border-collapse: collapse !important; }
+table.dataTable > tbody > tr.child ul.dtr-details { width: 100%; }
+
+/* ---------- Badges, forms ---------- */
+
+.badge { font-weight: 600; letter-spacing: .02em; padding: .4em .65em; }
+.bg-primary { background-color: var(--drape-ink) !important; }
+.text-primary { color: var(--drape-clay) !important; }
+.form-control:focus, .form-select:focus { border-color: var(--drape-ink); box-shadow: 0 0 0 .15rem rgba(27, 26, 24, .12); }
+.form-check-input:checked { background-color: var(--drape-ink); border-color: var(--drape-ink); }
+.nav-tabs .nav-link.active, .nav-tabs-custom .nav-link.active { color: var(--drape-clay) !important; }
+.nav-tabs-custom .nav-link::after { background: var(--drape-clay) !important; }
+.form-label { font-weight: 600; color: var(--drape-ink-soft); }
+
+/* Dashboard stat cards */
+.page-title-box h4 { font-size: 18px; font-weight: 600; }
+
+/* Quiet, outlined action buttons instead of solid green/blue/red blocks. */
+.table td .btn-sm.btn-success:not(.btn-rounded),
+.table td .btn-sm.btn-info:not(.btn-rounded),
+.table td .btn-sm.btn-light:not(.btn-rounded),
+.table td .btn-sm.btn-primary:not(.btn-rounded) {
+    background: #fff;
+    border: 1px solid var(--drape-line);
+    color: var(--drape-ink);
+}
+.table td .btn-sm.btn-success:not(.btn-rounded):hover,
+.table td .btn-sm.btn-info:not(.btn-rounded):hover,
+.table td .btn-sm.btn-light:not(.btn-rounded):hover,
+.table td .btn-sm.btn-primary:not(.btn-rounded):hover { background: var(--drape-ink); border-color: var(--drape-ink); color: #fff; }
+.table td .btn-sm.btn-danger:not(.btn-rounded) { background: #fff; border: 1px solid #f0d6d1; color: #b3261e; }
+.table td .btn-sm.btn-danger:not(.btn-rounded):hover { background: #b3261e; border-color: #b3261e; color: #fff; }
+.table td .btn-sm.has-label > i { margin-right: 4px !important; }
+
+/* Status toggles in tables read as soft pills (click to change). */
+.table td .btn-rounded { border-radius: 20px !important; height: 28px; font-weight: 600; border: 0; }
+.table td .btn-rounded.btn-success { background: #e2efe6; color: #2f6b4a; }
+.table td .btn-rounded.btn-danger, .table td .btn-rounded.btn-secondary { background: #f3ece9; color: #9b3b2f; }
+.table td .btn-rounded:hover { filter: brightness(.95); }
+
+.option-badge { display: inline-flex; align-items: center; gap: 5px; font-weight: 500; }
+.option-badge i { width: 11px; height: 11px; border-radius: 50%; box-shadow: inset 0 0 0 1px rgba(0, 0, 0, .15); }
+
+/* Tables scroll sideways on small screens rather than hiding columns. */
+div.dataTables_wrapper > .row > .col-sm-12 { overflow-x: auto; }
+table.dataTable td, table.dataTable th { white-space: normal; }
+table.dataTable td:last-child { white-space: nowrap; }
+table.dataTable thead .sorting::before, table.dataTable thead .sorting::after,
+table.dataTable thead .sorting_asc::before, table.dataTable thead .sorting_asc::after,
+table.dataTable thead .sorting_desc::before, table.dataTable thead .sorting_desc::after { bottom: .9em; }
+
+.navbar-brand-box, body[data-sidebar=light] .navbar-brand-box { background: #fff !important; border-right: 1px solid var(--drape-line); }
+
+/* Choices.js tag chips (product tags) */
+.choices__list--multiple .choices__item {
+    background: var(--drape-clay-soft) !important;
+    border: 1px solid #e6d5c9 !important;
+    color: var(--drape-clay) !important;
+    border-radius: 20px !important;
+    font-weight: 500;
+}
+.choices__list--multiple .choices__item .choices__button { border-left-color: #d9c3b4 !important; filter: sepia(1) saturate(3) hue-rotate(-20deg) brightness(.6); }
+
+/* Variant builder table */
+#variantTable td { vertical-align: middle; }
+#variantTable input[type=file] { min-width: 170px; }

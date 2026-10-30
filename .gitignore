@@ -1,0 +1,13 @@
+/node_modules
+/vendor
+.env
+.env.backup
+/public/upload
+/public/hot
+/public/build
+/public/sitemap.xml
+/storage/*.key
+/database/database.sqlite
+.phpunit.result.cache
+.DS_Store
+*.zip
